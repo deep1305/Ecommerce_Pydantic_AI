@@ -1,0 +1,14 @@
+passlib[bcrypt]
+python-multipart
+pymongo
+python-dotenv
+fastapi
+uvicorn
+groq
+ollama
+pydantic-ai
+jinja2
+nest-asyncio
+logfire
+logfire[fastapi]
+pydantic-ai-slim[tavily]
