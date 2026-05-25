@@ -9,7 +9,7 @@ import os
 load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"))
 
 # Get MongoDB connection string from environment
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = os.getenv("MONGODB_URI")
 
 # Initialize MongoDB client and database
 client = MongoClient(MONGO_URI)
