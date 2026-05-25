@@ -1,24 +1,13 @@
-# Stage 1: Build the Vue frontend
-FROM node:20-slim AS frontend-builder
-WORKDIR /frontend
-COPY Frontend/package*.json ./
-RUN npm install
-COPY Frontend/ .
-RUN npm run build
-
-# Stage 2: Build the Python backend
+# Build the Application
 FROM python:3.11-slim
 WORKDIR /app
-
+  
 # Install backend dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend source code
+# Copy source code (Backend + Frontend natively)
 COPY . .
-
-# Copy built frontend from stage 1 into Frontend/dist
-COPY --from=frontend-builder /frontend/dist ./Frontend/dist
 
 # Environment variables
 ENV PYTHONUNBUFFERED=1
