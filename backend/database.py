@@ -3,7 +3,8 @@ Database configuration and MongoDB connection setup.
 """
 from pymongo import MongoClient
 from dotenv import load_dotenv
-import os   
+import os
+import certifi
 
 # Load environment variables from .env file at root
 load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"))
@@ -12,7 +13,7 @@ load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"))
 MONGO_URI = os.getenv("MONGODB_URI") or os.getenv("MONGO_URI")
 
 # Initialize MongoDB client and database
-client = MongoClient(MONGO_URI, tlsAllowInvalidCertificates=True)
+client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client["ecommerce_db"]
 
 # collections 
