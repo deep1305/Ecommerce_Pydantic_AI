@@ -1,6 +1,7 @@
 passlib[bcrypt]
 python-multipart
-pymongo
+pymongo[srv]
+certifi
 python-dotenv
 fastapi
 uvicorn

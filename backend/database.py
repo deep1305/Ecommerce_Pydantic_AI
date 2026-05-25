@@ -12,7 +12,7 @@ load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"))
 MONGO_URI = os.getenv("MONGODB_URI") or os.getenv("MONGO_URI")
 
 # Initialize MongoDB client and database
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tlsAllowInvalidCertificates=True)
 db = client["ecommerce_db"]
 
 # collections 
