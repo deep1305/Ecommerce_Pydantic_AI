@@ -32,7 +32,7 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 
 # Serve Frontend natively
-app.mount("/", StaticFiles(directory="Frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory="Frontend/dist", html=True), name="frontend")
 
 if __name__ == "__main__":
     print("⚙️ Starting backend server (FastAPI)...")
